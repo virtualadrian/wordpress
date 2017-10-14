@@ -162,16 +162,7 @@ objects:
       dockerStrategy:
         from:
           kind: ImageStreamTag
-          name: php:5.6-apache
-        env:
-        - name: HTTPS_PROXY
-          value: http://proxy-internet.internal.fr:3128
-        - name: HTTP_PROXY
-          value: http://proxy-internet.internal.fr:3128
-        - name: http_proxy
-          value: http://proxy-internet.internal.fr:3128
-        - name: https_proxy
-          value: http://proxy-internet.internal.fr:3128        
+          name: php:5.6-apache     
       type: Docker
     triggers:
     - github:
