@@ -311,7 +311,7 @@ parameters:
     displayName: APPLICATION_NAME
     name: APPLICATION_NAME
     required: true
-    value: wehostzen-wordpress-app
+    value: wordpress
   -
     description: "The URL of your wordpress repository"
     displayName: GIT_REPOSITORY_URL
@@ -323,7 +323,7 @@ parameters:
     displayName: MYSQL_USER
     name: MYSQL_USER
     required: true
-    value: whzwpdbuser
+    value: whzwpuser
   -
     description: "Name of database"
     displayName: MYSQL_DATABASE
