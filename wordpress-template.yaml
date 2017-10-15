@@ -18,12 +18,12 @@ objects:
   spec:
     tags:
     - annotations:
-        openshift.io/imported-from: php:5.6-apache
+        openshift.io/imported-from: php:7.0-apache
       from:
         kind: DockerImage
-        name: php:5.6-apache
+        name: php:7.0-apache
       importPolicy: {}
-      name: 5.6-apache
+      name: 7.0-apache
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -317,7 +317,7 @@ parameters:
     displayName: GIT_REPOSITORY_URL
     name: GIT_REPOSITORY_URL
     required: true
-    value: "https://github.com/cyril-dussert/wordpress.git"
+    value: "https://github.com/virtualadrian/wordpress.git"
   -
     description: "Username of database account"
     displayName: MYSQL_USER
