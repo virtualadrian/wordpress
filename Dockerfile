@@ -63,6 +63,10 @@ RUN chmod +x /entrypoint.sh
 # Custom files
 #ADD wp-content /usr/src/wordpress/wp-content
 
+#RUN chmod 755 $(find /var/www/html -type d)
+#RUN chmod 644 $(find /var/www/html -type f)
+#RUN chown -Rf www-data:www-data /var/www
+
 # Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R 1001:0 /var/www/html && chmod -R ug+rwx /var/www/html
 
