@@ -18,12 +18,12 @@ objects:
   spec:
     tags:
     - annotations:
-        openshift.io/imported-from: php:7.0-apache
+        openshift.io/imported-from: php:5.6-apache
       from:
         kind: DockerImage
-        name: php:7.0-apache
+        name: php:5.6-apache
       importPolicy: {}
-      name: 7.0-apache
+      name: 5.6-apache
 - apiVersion: v1
   kind: ImageStream
   metadata:
