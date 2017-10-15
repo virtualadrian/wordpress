@@ -49,15 +49,11 @@ RUN sed -e 's/Listen 80/Listen 8080/' -i /etc/apache2/apache2.conf /etc/apache2/
 
 EXPOSE 8080
 
-RUN chmod 755 $(find /var/www/html -type d)
-RUN chmod 644 $(find /var/www/html -type f)
-
-RUN chmod -R 777 /var/lock/apache2 \
+RUN chmod -R 777 /var/www/html \
+ && chmod -R 777 /var/lock/apache2 \
  && chmod -R 777 /var/run/apache2 \
  && chmod -R 777 /var/log/apache2
 
-
-RUN chown -Rf www-data:www-data /var/www
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
