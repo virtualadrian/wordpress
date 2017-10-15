@@ -27,7 +27,7 @@ VOLUME /var/run/apache2
 VOLUME /var/log/apache2
 
 ENV WORDPRESS_VERSION 4.8.2
-ENV WORDPRESS_SHA1 1e14144c4db71421dc4ed22f94c3914dfc3b7020
+ENV WORDPRESS_SHA1 a99115b3b6d6d7a1eb6c5617d4e8e704ed50f450
 
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
 RUN set -x \
