@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:7.0-apache
 
 RUN a2enmod rewrite expires
 
@@ -26,7 +26,7 @@ VOLUME /var/lock/apache2
 VOLUME /var/run/apache2
 VOLUME /var/log/apache2
 
-ENV WORDPRESS_VERSION 4.7
+ENV WORDPRESS_VERSION 4.8.2
 ENV WORDPRESS_SHA1 1e14144c4db71421dc4ed22f94c3914dfc3b7020
 
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
@@ -49,11 +49,15 @@ RUN sed -e 's/Listen 80/Listen 8080/' -i /etc/apache2/apache2.conf /etc/apache2/
 
 EXPOSE 8080
 
-RUN chmod -R 777 /var/www/html \
- && chmod -R 777 /var/lock/apache2 \
+RUN chmod 755 $(find /var/www/html -type d)
+RUN chmod 644 $(find /var/www/html -type f)
+
+RUN chmod -R 777 /var/lock/apache2 \
  && chmod -R 777 /var/run/apache2 \
  && chmod -R 777 /var/log/apache2
 
+
+RUN chown -Rf www-data:www-data /var/www
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
@@ -61,7 +65,7 @@ COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Custom files
-ADD wp-content /usr/src/wordpress/wp-content
+#ADD wp-content /usr/src/wordpress/wp-content
 
 # Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R 1001:0 /var/www/html && chmod -R ug+rwx /var/www/html
